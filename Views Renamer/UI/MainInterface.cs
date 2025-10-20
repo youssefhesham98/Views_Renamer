@@ -20,6 +20,7 @@ namespace Views_Renamer.UI
         private static FFform FFform = null;
         private static PLform PLform = null;
         private static hvacform hvacform = null;
+        private static INFRAform infraform = null;
         public MainInterface()
         {
             InitializeComponent();
@@ -219,6 +220,35 @@ namespace Views_Renamer.UI
 
                 this.Hide();
                 PLform.Show();
+            }
+            catch (Exception ex)
+            {
+                TaskDialog.Show("Error", ex.Message);
+            }
+        }
+
+        private void infra_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // If already open, just bring it to front
+                if (infraform != null && !infraform.IsDisposed)
+                {
+                    infraform.BringToFront();
+                    return;
+                }
+
+                infraform = new INFRAform();
+
+                // When ARform closes, re-show this interface
+                infraform.FormClosed += (s, args) =>
+                {
+                    this.Show();
+                    infraform = null;
+                };
+
+                this.Hide();
+                infraform.Show();
             }
             catch (Exception ex)
             {

@@ -31,6 +31,36 @@ namespace Views_Renamer
                 case Request.STrenamer:
                     RvtUtils.Renamer(ExCmd.doc, STform.elevations_, STform.sections_, STform.threeds, STform.newvalue);
                     break;
+                case Request.ELCollector:
+                    RvtUtils.ELCollector(ExCmd.doc, ELform.selected_);
+                    break;
+                case Request.ELrenamer:
+                    RvtUtils.Renamer(ExCmd.doc, ELform.elevations_, ELform.sections_, ELform.threeds, ELform.newvalue);
+                    break;
+                case Request.FFCollector:
+                    RvtUtils.MECollector(ExCmd.doc, FFform.selected_);
+                    break;
+                case Request.FFrenamer:
+                    RvtUtils.Renamer(ExCmd.doc, FFform.elevations_, FFform.sections_, FFform.threeds, FFform.newvalue);
+                    break;
+                case Request.HVACCollector:
+                    RvtUtils.MECollector(ExCmd.doc, hvacform.selected_);
+                    break;
+                case Request.HVACrenamer:
+                    RvtUtils.Renamer(ExCmd.doc, hvacform.elevations_, hvacform.sections_, hvacform.threeds, hvacform.newvalue);
+                    break;
+                case Request.PLCollector:
+                    RvtUtils.PLCollector(ExCmd.doc, PLform.selected_);
+                    break;
+                case Request.PLrenamer:
+                    RvtUtils.Renamer(ExCmd.doc, PLform.elevations_, PLform.sections_, PLform.threeds, PLform.newvalue);
+                    break;
+                case Request.INFRACollector:
+                    RvtUtils.INFRFACollector(ExCmd.doc, INFRAform.selected_);
+                    break;
+                case Request.INFRArenamer:
+                    RvtUtils.Renamer(ExCmd.doc, INFRAform.elevations_, INFRAform.sections_, INFRAform.threeds, INFRAform.newvalue);
+                    break;
             }
         }
 
@@ -43,7 +73,18 @@ namespace Views_Renamer
             Collect,
             Rename,
             STCollector,
-            STrenamer
+            STrenamer,
+            ELCollector,
+            ELrenamer,
+            FFCollector,
+            FFrenamer,
+            HVACCollector,
+            HVACrenamer,
+            PLCollector,
+            PLrenamer,
+            INFRACollector,
+            INFRArenamer
         }
+
     }
 }

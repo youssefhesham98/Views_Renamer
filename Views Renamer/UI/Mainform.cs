@@ -138,7 +138,6 @@ namespace Views_Renamer.UI
             foreach (var cat in _viewsByCategory)
                     cattegories.Items.Add(cat);
         }
-
         private void select_Click(object sender, EventArgs e)
         {
             //if (viewcategories.SelectedItem == null) return;
@@ -149,7 +148,6 @@ namespace Views_Renamer.UI
             ExCmd.exevt.request = Request.Collect;
             ExCmd.exevthan.Raise();
         }
-
         private void edecs_Click(object sender, EventArgs e)
         {
             string url = @"https://www.edecs.com/";
@@ -176,7 +174,6 @@ namespace Views_Renamer.UI
                 TaskDialog.Show("Error", "No URL entered.");
             }
         }
-
         private void cattegories_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cattegories.SelectedItem == null) return;
@@ -224,25 +221,21 @@ namespace Views_Renamer.UI
                     break;
             }
         }
-
         private void elevations_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (_suppressEvents) return;
             HandleExclusiveSelection(elevations, new[] { sections, threed });
         }
-
         private void sections_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (_suppressEvents) return;
             HandleExclusiveSelection(sections, new[] { elevations, threed });
         }
-
         private void threed_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (_suppressEvents) return;
             HandleExclusiveSelection(threed, new[] { elevations, sections });
         }
-
         private void renamer_Click(object sender, EventArgs e)
         {
             string newValue = newname.Text.Trim();
@@ -256,7 +249,6 @@ namespace Views_Renamer.UI
             ExCmd.exevt.request = Request.Rename;
             ExCmd.exevthan.Raise();
         }
-
         private void newname_TextChanged(object sender, EventArgs e)
         {
 

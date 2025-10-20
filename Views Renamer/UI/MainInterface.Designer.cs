@@ -37,6 +37,7 @@
             this.pb = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.edecs = new System.Windows.Forms.PictureBox();
+            this.infra = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edecs)).BeginInit();
             this.SuspendLayout();
@@ -124,12 +125,23 @@
             this.edecs.TabStop = false;
             this.edecs.Click += new System.EventHandler(this.edecs_Click);
             // 
+            // infra
+            // 
+            this.infra.Location = new System.Drawing.Point(498, 93);
+            this.infra.Name = "infra";
+            this.infra.Size = new System.Drawing.Size(75, 25);
+            this.infra.TabIndex = 8;
+            this.infra.Text = "Infrastructure";
+            this.infra.UseVisualStyleBackColor = true;
+            this.infra.Click += new System.EventHandler(this.infra_Click);
+            // 
             // MainInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 138);
+            this.Controls.Add(this.infra);
             this.Controls.Add(this.pb);
             this.Controls.Add(this.ff);
             this.Controls.Add(this.hvac);
@@ -163,5 +175,6 @@
         private System.Windows.Forms.Button hvac;
         private System.Windows.Forms.Button ff;
         private System.Windows.Forms.Button pb;
+        private System.Windows.Forms.Button infra;
     }
 }

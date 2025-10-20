@@ -92,6 +92,12 @@
     <Compile Include="UI\hvacform.Designer.cs">
       <DependentUpon>hvacform.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\INFRAform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\INFRAform.Designer.cs">
+      <DependentUpon>INFRAform.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Mainform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\hvacform.resx">
       <DependentUpon>hvacform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\INFRAform.resx">
+      <DependentUpon>INFRAform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Mainform.resx">
       <DependentUpon>Mainform.cs</DependentUpon>

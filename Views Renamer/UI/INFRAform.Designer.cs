@@ -1,6 +1,6 @@
 ﻿namespace Views_Renamer.UI
 {
-    partial class ELform
+    partial class INFRAform
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ELform));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(INFRAform));
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -252,7 +252,7 @@
             this.panel5.Size = new System.Drawing.Size(527, 23);
             this.panel5.TabIndex = 35;
             // 
-            // ELform
+            // INFRAform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -282,10 +282,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ELform";
+            this.Name = "INFRAform";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Views Renamer";
-            this.Load += new System.EventHandler(this.ELform_Load);
+            this.Load += new System.EventHandler(this.INFRAform_Load);
             ((System.ComponentModel.ISupportInitialize)(this.edecs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

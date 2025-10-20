@@ -1,4 +1,5 @@
-﻿using Autodesk.Revit.UI;
+﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,14 +8,17 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Views_Renamer.ExEvt;
+using Color = System.Drawing.Color;
+using Form = System.Windows.Forms.Form;
 using TextBox = System.Windows.Forms.TextBox;
 
 namespace Views_Renamer.UI
 {
-    public partial class hvacform : Form
+    public partial class INFRAform : Form
     {
         //public static List<View> ele;
         //public static List<View> sec;
@@ -27,7 +31,7 @@ namespace Views_Renamer.UI
         public static ListBox sections_;
         public static ListBox threeds;
         private bool _suppressEvents = false;
-        public hvacform()
+        public INFRAform()
         {
             InitializeComponent();
             InitializePlaceholders();
@@ -43,8 +47,8 @@ namespace Views_Renamer.UI
             elevations.Items.Clear();
             sections.Items.Clear();
             threed.Items.Clear();
-            RvtUtils.MECollectRestViews(ExCmd.doc);
-            _viewsByCategory = Data.MEViewCategories;
+            RvtUtils.PLCollectRestViews(ExCmd.doc);
+            _viewsByCategory = Data.INFRAViewCategories;
             elevations_ = elevations;
             sections_ = sections;
             threeds = threed;
@@ -123,6 +127,12 @@ namespace Views_Renamer.UI
                 lb.ClearSelected();
             }
         }
+        private void INFRAform_Load(object sender, EventArgs e)
+        {
+            if (_viewsByCategory == null) return;
+            foreach (var cat in _viewsByCategory)
+                cattegories.Items.Add(cat);
+        }
         private void edecs_Click(object sender, EventArgs e)
         {
             string url = @"https://www.edecs.com/";
@@ -149,6 +159,60 @@ namespace Views_Renamer.UI
                 TaskDialog.Show("Error", "No URL entered.");
             }
         }
+        private void cattegories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cattegories.SelectedItem == null) return;
+            string selected = this.cattegories.SelectedItem.ToString();
+            elevations.Items.Clear();
+            sections.Items.Clear();
+            threed.Items.Clear();
+
+            switch (selected)
+            {
+                case "00_Work In Progress":
+                    RvtUtils.Switcher(selected, elevations, sections, threed);
+                    break;
+                case "01_General":
+                    RvtUtils.Switcher(selected, elevations, sections, threed);
+                    break;
+                case "02_Storm Water":
+                    RvtUtils.Switcher(selected, elevations, sections, threed);
+                    break;
+                case "03_Swege":
+                    RvtUtils.Switcher(selected, elevations, sections, threed);
+                    break;
+                case "04_Water Supply":
+                    RvtUtils.Switcher(selected, elevations, sections, threed);
+                    break;
+                case "05_Firefighting":
+                    RvtUtils.Switcher(selected, elevations, sections, threed);
+                    break;
+                case "06_Irrigation":
+                    RvtUtils.Switcher(selected, elevations, sections, threed);
+                    break;
+                case "07_CCTV":
+                    RvtUtils.Switcher(selected, elevations, sections, threed);
+                    break;
+                case "08_Public Address":
+                    RvtUtils.Switcher(selected, elevations, sections, threed);
+                    break;
+                case "09_LV Network":
+                    RvtUtils.Switcher(selected, elevations, sections, threed);
+                    break;
+                case "10_Fire Alarm":
+                    RvtUtils.Switcher(selected, elevations, sections, threed);
+                    break;
+                case "11_Low Current":
+                    RvtUtils.Switcher(selected, elevations, sections, threed);
+                    break;
+                case "12_MV Network":
+                    RvtUtils.Switcher(selected, elevations, sections, threed);
+                    break;
+                case "13_Ductbanks":
+                    RvtUtils.Switcher(selected, elevations, sections, threed);
+                    break;
+            }
+        }
         private void elevations_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (_suppressEvents) return;
@@ -171,7 +235,7 @@ namespace Views_Renamer.UI
             var selection_ = cattegories.SelectedItems.Cast<string>().ToList();
             //selection = selected;
             selected_ = selection_;
-            ExCmd.exevt.request = Request.HVACCollector;
+            ExCmd.exevt.request = Request.INFRACollector;
             ExCmd.exevthan.Raise();
         }
         private void renamer_Click(object sender, EventArgs e)
@@ -184,50 +248,8 @@ namespace Views_Renamer.UI
                 TaskDialog.Show("Error", "Please enter a new value in the text box.");
                 return;
             }
-            ExCmd.exevt.request = Request.HVACrenamer;
+            ExCmd.exevt.request = Request.INFRArenamer;
             ExCmd.exevthan.Raise();
-        }
-        private void hvacform_Load(object sender, EventArgs e)
-        {
-            if (_viewsByCategory == null) return;
-            foreach (var cat in _viewsByCategory)
-                cattegories.Items.Add(cat);
-        }
-        private void cattegories_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cattegories.SelectedItem == null) return;
-            string selected = this.cattegories.SelectedItem.ToString();
-            elevations.Items.Clear();
-            sections.Items.Clear();
-            threed.Items.Clear();
-
-            switch (selected)
-            {
-                case "00_Work In Progress":
-                    RvtUtils.Switcher(selected, elevations, sections, threed);
-                    break;
-                case "01_General":
-                    RvtUtils.Switcher(selected, elevations, sections, threed);
-                    break;
-                case "02_HVAC":
-                    RvtUtils.Switcher(selected, elevations, sections, threed);
-                    break;
-                case "03_Fire Fighting":
-                    RvtUtils.Switcher(selected, elevations, sections, threed);
-                    break;
-                case "04_Chilled Water":
-                    RvtUtils.Switcher(selected, elevations, sections, threed);
-                    break;
-                case "05_Medical Gases":
-                    RvtUtils.Switcher(selected, elevations, sections, threed);
-                    break;
-                case "06_Compressed Air":
-                    RvtUtils.Switcher(selected, elevations, sections, threed);
-                    break;
-                case "07_Gas System":
-                    RvtUtils.Switcher(selected, elevations, sections, threed);
-                    break;
-            }
         }
     }
 }

@@ -102,6 +102,10 @@ namespace Views_Renamer
                 }
             }
         }
+        /// <summary>
+        /// Collect all Elevation, Section and 3D views in the document and categorize them based on the "View Category" parameter.
+        /// </summary>
+        /// <param name="doc"></param>
         public static void STCollectRestViews(Document doc)
         {
             var restViews = new FilteredElementCollector(doc)
@@ -159,6 +163,266 @@ namespace Views_Renamer
                             Data.threeddic[paramValue] = new List<View>();
                             Data.threeddic[paramValue].Add(view);
                             Data.threed[view.Name] = view;
+                    }
+                }
+            }
+        }
+        /// <summary>
+        /// Collect all Elevation, Section and 3D views in the document and categorize them based on the "View Category" parameter.
+        /// </summary>
+        /// <param name="doc"></param>
+        public static void ELCollectRestViews(Document doc)
+        {
+            var restViews = new FilteredElementCollector(doc)
+                   .OfClass(typeof(View))
+                   .Cast<View>()
+                   .Where(v => !v.IsTemplate)
+                   .Where(v =>
+                       v.ViewType == ViewType.Elevation ||
+                       v.ViewType == ViewType.Section ||
+                       v.ViewType == ViewType.ThreeD)
+                   .ToList();
+
+            foreach (var view in restViews)
+            {
+                if (view.ViewType == ViewType.Elevation)
+                {
+                    Parameter param = view.LookupParameter("View Category");
+                    if (param == null || !param.HasValue) continue;
+                    string paramValue = param.AsString();
+                    if (string.IsNullOrEmpty(paramValue)) continue;
+                    //Match only values from our list
+                    if (Data.ELViewCategories.Contains(paramValue))
+                    {
+                        if (!Data.elevdic.ContainsKey(paramValue))
+                            Data.elevdic[paramValue] = new List<View>();
+                            Data.elevdic[paramValue].Add(view);
+                            Data.elevations[view.Name] = view;
+                    }
+                }
+                else if (view.ViewType == ViewType.Section)
+                {
+                    Parameter param = view.LookupParameter("View Category");
+                    if (param == null || !param.HasValue) continue;
+                    string paramValue = param.AsString();
+                    if (string.IsNullOrEmpty(paramValue)) continue;
+                    //Match only values from our list
+                    if (Data.ELViewCategories.Contains(paramValue))
+                    {
+                        if (!Data.secdic.ContainsKey(paramValue))
+                            Data.secdic[paramValue] = new List<View>();
+                            Data.secdic[paramValue].Add(view);
+                            Data.sections[view.Name] = view;
+                    }
+                }
+                else if (view.ViewType == ViewType.ThreeD)
+                {
+                    Parameter param = view.LookupParameter("View Category");
+                    if (param == null || !param.HasValue) continue;
+                    string paramValue = param.AsString();
+                    if (string.IsNullOrEmpty(paramValue)) continue;
+                    //Match only values from our list
+                    if (Data.ELViewCategories.Contains(paramValue))
+                    {
+                        if (!Data.threeddic.ContainsKey(paramValue))
+                            Data.threeddic[paramValue] = new List<View>();
+                            Data.threeddic[paramValue].Add(view);
+                            Data.threed[view.Name] = view;
+                    }
+                }
+            }
+        }
+        /// <summary>
+        /// Collect all Elevation, Section and 3D views in the document and categorize them based on the "View Category" parameter.
+        /// </summary>
+        /// <param name="doc"></param>
+        public static void MECollectRestViews(Document doc)
+        {
+            var restViews = new FilteredElementCollector(doc)
+                   .OfClass(typeof(View))
+                   .Cast<View>()
+                   .Where(v => !v.IsTemplate)
+                   .Where(v =>
+                       v.ViewType == ViewType.Elevation ||
+                       v.ViewType == ViewType.Section ||
+                       v.ViewType == ViewType.ThreeD)
+                   .ToList();
+
+            foreach (var view in restViews)
+            {
+                if (view.ViewType == ViewType.Elevation)
+                {
+                    Parameter param = view.LookupParameter("View Category");
+                    if (param == null || !param.HasValue) continue;
+                    string paramValue = param.AsString();
+                    if (string.IsNullOrEmpty(paramValue)) continue;
+                    //Match only values from our list
+                    if (Data.MEViewCategories.Contains(paramValue))
+                    {
+                        if (!Data.elevdic.ContainsKey(paramValue))
+                            Data.elevdic[paramValue] = new List<View>();
+                            Data.elevdic[paramValue].Add(view);
+                            Data.elevations[view.Name] = view;
+                    }
+                }
+                else if (view.ViewType == ViewType.Section)
+                {
+                    Parameter param = view.LookupParameter("View Category");
+                    if (param == null || !param.HasValue) continue;
+                    string paramValue = param.AsString();
+                    if (string.IsNullOrEmpty(paramValue)) continue;
+                    //Match only values from our list
+                    if (Data.MEViewCategories.Contains(paramValue))
+                    {
+                        if (!Data.secdic.ContainsKey(paramValue))
+                            Data.secdic[paramValue] = new List<View>();
+                        Data.secdic[paramValue].Add(view);
+                        Data.sections[view.Name] = view;
+                    }
+                }
+                else if (view.ViewType == ViewType.ThreeD)
+                {
+                    Parameter param = view.LookupParameter("View Category");
+                    if (param == null || !param.HasValue) continue;
+                    string paramValue = param.AsString();
+                    if (string.IsNullOrEmpty(paramValue)) continue;
+                    //Match only values from our list
+                    if (Data.MEViewCategories.Contains(paramValue))
+                    {
+                        if (!Data.threeddic.ContainsKey(paramValue))
+                            Data.threeddic[paramValue] = new List<View>();
+                        Data.threeddic[paramValue].Add(view);
+                        Data.threed[view.Name] = view;
+                    }
+                }
+            }
+        }
+        /// <summary>
+        /// Collect all Elevation, Section and 3D views in the document and categorize them based on the "View Category" parameter.
+        /// </summary>
+        /// <param name="doc"></param>
+        public static void PLCollectRestViews(Document doc)
+        {
+            var restViews = new FilteredElementCollector(doc)
+                   .OfClass(typeof(View))
+                   .Cast<View>()
+                   .Where(v => !v.IsTemplate)
+                   .Where(v =>
+                       v.ViewType == ViewType.Elevation ||
+                       v.ViewType == ViewType.Section ||
+                       v.ViewType == ViewType.ThreeD)
+                   .ToList();
+
+            foreach (var view in restViews)
+            {
+                if (view.ViewType == ViewType.Elevation)
+                {
+                    Parameter param = view.LookupParameter("View Category");
+                    if (param == null || !param.HasValue) continue;
+                    string paramValue = param.AsString();
+                    if (string.IsNullOrEmpty(paramValue)) continue;
+                    //Match only values from our list
+                    if (Data.PLViewCategories.Contains(paramValue))
+                    {
+                        if (!Data.elevdic.ContainsKey(paramValue))
+                            Data.elevdic[paramValue] = new List<View>();
+                        Data.elevdic[paramValue].Add(view);
+                        Data.elevations[view.Name] = view;
+                    }
+                }
+                else if (view.ViewType == ViewType.Section)
+                {
+                    Parameter param = view.LookupParameter("View Category");
+                    if (param == null || !param.HasValue) continue;
+                    string paramValue = param.AsString();
+                    if (string.IsNullOrEmpty(paramValue)) continue;
+                    //Match only values from our list
+                    if (Data.PLViewCategories.Contains(paramValue))
+                    {
+                        if (!Data.secdic.ContainsKey(paramValue))
+                            Data.secdic[paramValue] = new List<View>();
+                        Data.secdic[paramValue].Add(view);
+                        Data.sections[view.Name] = view;
+                    }
+                }
+                else if (view.ViewType == ViewType.ThreeD)
+                {
+                    Parameter param = view.LookupParameter("View Category");
+                    if (param == null || !param.HasValue) continue;
+                    string paramValue = param.AsString();
+                    if (string.IsNullOrEmpty(paramValue)) continue;
+                    //Match only values from our list
+                    if (Data.PLViewCategories.Contains(paramValue))
+                    {
+                        if (!Data.threeddic.ContainsKey(paramValue))
+                            Data.threeddic[paramValue] = new List<View>();
+                        Data.threeddic[paramValue].Add(view);
+                        Data.threed[view.Name] = view;
+                    }
+                }
+            }
+        }
+        /// <summary>
+        /// Collect all Elevation, Section and 3D views in the document and categorize them based on the "View Category" parameter.
+        /// </summary>
+        /// <param name="doc"></param>
+        public static void INFRACollectRestViews(Document doc)
+        {
+            var restViews = new FilteredElementCollector(doc)
+                   .OfClass(typeof(View))
+                   .Cast<View>()
+                   .Where(v => !v.IsTemplate)
+                   .Where(v =>
+                       v.ViewType == ViewType.Elevation ||
+                       v.ViewType == ViewType.Section ||
+                       v.ViewType == ViewType.ThreeD)
+                   .ToList();
+
+            foreach (var view in restViews)
+            {
+                if (view.ViewType == ViewType.Elevation)
+                {
+                    Parameter param = view.LookupParameter("View Category");
+                    if (param == null || !param.HasValue) continue;
+                    string paramValue = param.AsString();
+                    if (string.IsNullOrEmpty(paramValue)) continue;
+                    //Match only values from our list
+                    if (Data.INFRAViewCategories.Contains(paramValue))
+                    {
+                        if (!Data.elevdic.ContainsKey(paramValue))
+                            Data.elevdic[paramValue] = new List<View>();
+                        Data.elevdic[paramValue].Add(view);
+                        Data.elevations[view.Name] = view;
+                    }
+                }
+                else if (view.ViewType == ViewType.Section)
+                {
+                    Parameter param = view.LookupParameter("View Category");
+                    if (param == null || !param.HasValue) continue;
+                    string paramValue = param.AsString();
+                    if (string.IsNullOrEmpty(paramValue)) continue;
+                    //Match only values from our list
+                    if (Data.INFRAViewCategories.Contains(paramValue))
+                    {
+                        if (!Data.secdic.ContainsKey(paramValue))
+                            Data.secdic[paramValue] = new List<View>();
+                        Data.secdic[paramValue].Add(view);
+                        Data.sections[view.Name] = view;
+                    }
+                }
+                else if (view.ViewType == ViewType.ThreeD)
+                {
+                    Parameter param = view.LookupParameter("View Category");
+                    if (param == null || !param.HasValue) continue;
+                    string paramValue = param.AsString();
+                    if (string.IsNullOrEmpty(paramValue)) continue;
+                    //Match only values from our list
+                    if (Data.INFRAViewCategories.Contains(paramValue))
+                    {
+                        if (!Data.threeddic.ContainsKey(paramValue))
+                            Data.threeddic[paramValue] = new List<View>();
+                        Data.threeddic[paramValue].Add(view);
+                        Data.threed[view.Name] = view;
                     }
                 }
             }
@@ -627,6 +891,494 @@ namespace Views_Renamer
                     {
                         {
                             if (Data.STprefixMap.TryGetValue(select, out string prefix))
+                            {
+                                int k = 0;
+                                foreach (var view in cplans)
+                                {
+                                    var levelName = view.GenLevel != null ? view.GenLevel.Name : "XX";
+                                    var name = $"{prefix}_{k + 1:00}_{levelName}_PLN_XX";
+                                    view.Name = name;
+                                    k++;
+                                }
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                    }
+                }
+                tns.Commit();
+            }
+        }
+        /// <summary>
+        /// collector method to rename floor and ceiling plans based on selected categories from the form
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="selection"></param>
+        public static void ELCollector(Document doc, List<string> selection)
+        {
+            using (Transaction tns = new Transaction(doc, "Renamer"))
+            {
+                tns.Start();
+                // Collect all views except templates
+                var allViews = new FilteredElementCollector(doc)
+                    .OfClass(typeof(View))
+                    .Cast<View>()
+                    .Where(v => !v.IsTemplate)
+                    .Where(v =>
+                        v.ViewType == ViewType.FloorPlan ||
+                        v.ViewType == ViewType.CeilingPlan)
+                    .OrderBy(v => v.GenLevel.Elevation)
+                    .ToList();
+
+                // Collect all levels in the project
+                var allLevels = new FilteredElementCollector(doc)
+                    .OfClass(typeof(Level))
+                    .Cast<Level>()
+                    .OrderBy(l => l.Elevation)
+                    .ToList();
+                var levelIds = new HashSet<ElementId>(allLevels.Select(l => l.Id));
+
+                var viewsByCategory = new Dictionary<string, List<View>>();
+                var floorplans = new Dictionary<string, List<View>>();
+                var ceilingplans = new Dictionary<string, List<View>>();
+                try
+                {
+                    foreach (var view in allViews)
+                    {
+                        Level lvl = null;
+                        if (view is ViewPlan vp && vp.GenLevel != null)
+                        {
+                            lvl = doc.GetElement(vp.GenLevel.Id) as Level;
+                        }
+                        if (lvl != null && levelIds.Contains(lvl.Id))
+                        {
+                            if (view.ViewType == ViewType.FloorPlan)
+                            {
+                                Parameter param = view.LookupParameter("View Category");
+                                if (param == null || !param.HasValue) continue;
+                                string paramValue = param.AsString();
+                                if (string.IsNullOrEmpty(paramValue)) continue;
+                                //Match only values from our list
+                                if (Data.ELViewCategories.Contains(paramValue))
+                                {
+                                    if (!floorplans.ContainsKey(paramValue))
+                                        floorplans[paramValue] = new List<View>();
+                                    floorplans[paramValue].Add(view);
+                                }
+                            }
+                            else if (view.ViewType == ViewType.CeilingPlan)
+                            {
+                                Parameter param = view.LookupParameter("View Category");
+                                if (param == null || !param.HasValue) continue;
+                                string paramValue = param.AsString();
+                                if (string.IsNullOrEmpty(paramValue)) continue;
+                                //Match only values from our list
+                                if (Data.ELViewCategories.Contains(paramValue))
+                                {
+                                    if (!ceilingplans.ContainsKey(paramValue))
+                                        ceilingplans[paramValue] = new List<View>();
+                                    ceilingplans[paramValue].Add(view);
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    TaskDialog.Show("Error", ex.Message);
+                }
+                foreach (var select in selection)
+                {
+                    if (floorplans.TryGetValue(select, out var plans))
+                    {
+                        if (Data.ELprefixMap.TryGetValue(select, out string prefix))
+                        {
+                            int k = 0;
+                            foreach (var view in plans)
+                            {
+                                var levelName = view.GenLevel != null ? view.GenLevel.Name : "XX";
+                                var name = $"{prefix}_{k + 1:00}_{levelName}_PLN_XX";
+                                view.Name = name;
+                                k++;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    else if (ceilingplans.TryGetValue(select, out var cplans))
+                    {
+                        {
+                            if (Data.ELprefixMap.TryGetValue(select, out string prefix))
+                            {
+                                int k = 0;
+                                foreach (var view in cplans)
+                                {
+                                    var levelName = view.GenLevel != null ? view.GenLevel.Name : "XX";
+                                    var name = $"{prefix}_{k + 1:00}_{levelName}_PLN_XX";
+                                    view.Name = name;
+                                    k++;
+                                }
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                    }
+                }
+                tns.Commit();
+            }
+        }
+        /// <summary>
+        /// collector method to rename floor and ceiling plans based on selected categories from the form
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="selection"></param>
+        public static void MECollector(Document doc, List<string> selection)
+        {
+            using (Transaction tns = new Transaction(doc, "Renamer"))
+            {
+                tns.Start();
+                // Collect all views except templates
+                var allViews = new FilteredElementCollector(doc)
+                    .OfClass(typeof(View))
+                    .Cast<View>()
+                    .Where(v => !v.IsTemplate)
+                    .Where(v =>
+                        v.ViewType == ViewType.FloorPlan ||
+                        v.ViewType == ViewType.CeilingPlan)
+                    .OrderBy(v => v.GenLevel.Elevation)
+                    .ToList();
+
+                // Collect all levels in the project
+                var allLevels = new FilteredElementCollector(doc)
+                    .OfClass(typeof(Level))
+                    .Cast<Level>()
+                    .OrderBy(l => l.Elevation)
+                    .ToList();
+                var levelIds = new HashSet<ElementId>(allLevels.Select(l => l.Id));
+
+                var viewsByCategory = new Dictionary<string, List<View>>();
+                var floorplans = new Dictionary<string, List<View>>();
+                var ceilingplans = new Dictionary<string, List<View>>();
+                try
+                {
+                    foreach (var view in allViews)
+                    {
+                        Level lvl = null;
+                        if (view is ViewPlan vp && vp.GenLevel != null)
+                        {
+                            lvl = doc.GetElement(vp.GenLevel.Id) as Level;
+                        }
+                        if (lvl != null && levelIds.Contains(lvl.Id))
+                        {
+                            if (view.ViewType == ViewType.FloorPlan)
+                            {
+                                Parameter param = view.LookupParameter("View Category");
+                                if (param == null || !param.HasValue) continue;
+                                string paramValue = param.AsString();
+                                if (string.IsNullOrEmpty(paramValue)) continue;
+                                //Match only values from our list
+                                if (Data.MEViewCategories.Contains(paramValue))
+                                {
+                                    if (!floorplans.ContainsKey(paramValue))
+                                        floorplans[paramValue] = new List<View>();
+                                    floorplans[paramValue].Add(view);
+                                }
+                            }
+                            else if (view.ViewType == ViewType.CeilingPlan)
+                            {
+                                Parameter param = view.LookupParameter("View Category");
+                                if (param == null || !param.HasValue) continue;
+                                string paramValue = param.AsString();
+                                if (string.IsNullOrEmpty(paramValue)) continue;
+                                //Match only values from our list
+                                if (Data.MEViewCategories.Contains(paramValue))
+                                {
+                                    if (!ceilingplans.ContainsKey(paramValue))
+                                        ceilingplans[paramValue] = new List<View>();
+                                    ceilingplans[paramValue].Add(view);
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    TaskDialog.Show("Error", ex.Message);
+                }
+                foreach (var select in selection)
+                {
+                    if (floorplans.TryGetValue(select, out var plans))
+                    {
+                        if (Data.MEprefixMap.TryGetValue(select, out string prefix))
+                        {
+                            int k = 0;
+                            foreach (var view in plans)
+                            {
+                                var levelName = view.GenLevel != null ? view.GenLevel.Name : "XX";
+                                var name = $"{prefix}_{k + 1:00}_{levelName}_PLN_XX";
+                                view.Name = name;
+                                k++;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    else if (ceilingplans.TryGetValue(select, out var cplans))
+                    {
+                        {
+                            if (Data.MEprefixMap.TryGetValue(select, out string prefix))
+                            {
+                                int k = 0;
+                                foreach (var view in cplans)
+                                {
+                                    var levelName = view.GenLevel != null ? view.GenLevel.Name : "XX";
+                                    var name = $"{prefix}_{k + 1:00}_{levelName}_PLN_XX";
+                                    view.Name = name;
+                                    k++;
+                                }
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                    }
+                }
+                tns.Commit();
+            }
+        }
+        /// <summary>
+        /// collector method to rename floor and ceiling plans based on selected categories from the form
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="selection"></param>
+        public static void PLCollector(Document doc, List<string> selection)
+        {
+            using (Transaction tns = new Transaction(doc, "Renamer"))
+            {
+                tns.Start();
+                // Collect all views except templates
+                var allViews = new FilteredElementCollector(doc)
+                    .OfClass(typeof(View))
+                    .Cast<View>()
+                    .Where(v => !v.IsTemplate)
+                    .Where(v =>
+                        v.ViewType == ViewType.FloorPlan ||
+                        v.ViewType == ViewType.CeilingPlan)
+                    .OrderBy(v => v.GenLevel.Elevation)
+                    .ToList();
+
+                // Collect all levels in the project
+                var allLevels = new FilteredElementCollector(doc)
+                    .OfClass(typeof(Level))
+                    .Cast<Level>()
+                    .OrderBy(l => l.Elevation)
+                    .ToList();
+                var levelIds = new HashSet<ElementId>(allLevels.Select(l => l.Id));
+
+                var viewsByCategory = new Dictionary<string, List<View>>();
+                var floorplans = new Dictionary<string, List<View>>();
+                var ceilingplans = new Dictionary<string, List<View>>();
+                try
+                {
+                    foreach (var view in allViews)
+                    {
+                        Level lvl = null;
+                        if (view is ViewPlan vp && vp.GenLevel != null)
+                        {
+                            lvl = doc.GetElement(vp.GenLevel.Id) as Level;
+                        }
+                        if (lvl != null && levelIds.Contains(lvl.Id))
+                        {
+                            if (view.ViewType == ViewType.FloorPlan)
+                            {
+                                Parameter param = view.LookupParameter("View Category");
+                                if (param == null || !param.HasValue) continue;
+                                string paramValue = param.AsString();
+                                if (string.IsNullOrEmpty(paramValue)) continue;
+                                //Match only values from our list
+                                if (Data.PLViewCategories.Contains(paramValue))
+                                {
+                                    if (!floorplans.ContainsKey(paramValue))
+                                        floorplans[paramValue] = new List<View>();
+                                    floorplans[paramValue].Add(view);
+                                }
+                            }
+                            else if (view.ViewType == ViewType.CeilingPlan)
+                            {
+                                Parameter param = view.LookupParameter("View Category");
+                                if (param == null || !param.HasValue) continue;
+                                string paramValue = param.AsString();
+                                if (string.IsNullOrEmpty(paramValue)) continue;
+                                //Match only values from our list
+                                if (Data.PLViewCategories.Contains(paramValue))
+                                {
+                                    if (!ceilingplans.ContainsKey(paramValue))
+                                        ceilingplans[paramValue] = new List<View>();
+                                    ceilingplans[paramValue].Add(view);
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    TaskDialog.Show("Error", ex.Message);
+                }
+                foreach (var select in selection)
+                {
+                    if (floorplans.TryGetValue(select, out var plans))
+                    {
+                        if (Data.PLprefixMap.TryGetValue(select, out string prefix))
+                        {
+                            int k = 0;
+                            foreach (var view in plans)
+                            {
+                                var levelName = view.GenLevel != null ? view.GenLevel.Name : "XX";
+                                var name = $"{prefix}_{k + 1:00}_{levelName}_PLN_XX";
+                                view.Name = name;
+                                k++;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    else if (ceilingplans.TryGetValue(select, out var cplans))
+                    {
+                        {
+                            if (Data.PLprefixMap.TryGetValue(select, out string prefix))
+                            {
+                                int k = 0;
+                                foreach (var view in cplans)
+                                {
+                                    var levelName = view.GenLevel != null ? view.GenLevel.Name : "XX";
+                                    var name = $"{prefix}_{k + 1:00}_{levelName}_PLN_XX";
+                                    view.Name = name;
+                                    k++;
+                                }
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                    }
+                }
+                tns.Commit();
+            }
+        }
+        /// <summary>
+        /// collector method to rename floor and ceiling plans based on selected categories from the form
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="selection"></param>
+        public static void INFRFACollector(Document doc, List<string> selection)
+        {
+            using (Transaction tns = new Transaction(doc, "Renamer"))
+            {
+                tns.Start();
+                // Collect all views except templates
+                var allViews = new FilteredElementCollector(doc)
+                    .OfClass(typeof(View))
+                    .Cast<View>()
+                    .Where(v => !v.IsTemplate)
+                    .Where(v =>
+                        v.ViewType == ViewType.FloorPlan ||
+                        v.ViewType == ViewType.CeilingPlan)
+                    .OrderBy(v => v.GenLevel.Elevation)
+                    .ToList();
+
+                // Collect all levels in the project
+                var allLevels = new FilteredElementCollector(doc)
+                    .OfClass(typeof(Level))
+                    .Cast<Level>()
+                    .OrderBy(l => l.Elevation)
+                    .ToList();
+                var levelIds = new HashSet<ElementId>(allLevels.Select(l => l.Id));
+
+                var viewsByCategory = new Dictionary<string, List<View>>();
+                var floorplans = new Dictionary<string, List<View>>();
+                var ceilingplans = new Dictionary<string, List<View>>();
+                try
+                {
+                    foreach (var view in allViews)
+                    {
+                        Level lvl = null;
+                        if (view is ViewPlan vp && vp.GenLevel != null)
+                        {
+                            lvl = doc.GetElement(vp.GenLevel.Id) as Level;
+                        }
+                        if (lvl != null && levelIds.Contains(lvl.Id))
+                        {
+                            if (view.ViewType == ViewType.FloorPlan)
+                            {
+                                Parameter param = view.LookupParameter("View Category");
+                                if (param == null || !param.HasValue) continue;
+                                string paramValue = param.AsString();
+                                if (string.IsNullOrEmpty(paramValue)) continue;
+                                //Match only values from our list
+                                if (Data.INFRAViewCategories.Contains(paramValue))
+                                {
+                                    if (!floorplans.ContainsKey(paramValue))
+                                        floorplans[paramValue] = new List<View>();
+                                    floorplans[paramValue].Add(view);
+                                }
+                            }
+                            else if (view.ViewType == ViewType.CeilingPlan)
+                            {
+                                Parameter param = view.LookupParameter("View Category");
+                                if (param == null || !param.HasValue) continue;
+                                string paramValue = param.AsString();
+                                if (string.IsNullOrEmpty(paramValue)) continue;
+                                //Match only values from our list
+                                if (Data.INFRAViewCategories.Contains(paramValue))
+                                {
+                                    if (!ceilingplans.ContainsKey(paramValue))
+                                        ceilingplans[paramValue] = new List<View>();
+                                    ceilingplans[paramValue].Add(view);
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    TaskDialog.Show("Error", ex.Message);
+                }
+                foreach (var select in selection)
+                {
+                    if (floorplans.TryGetValue(select, out var plans))
+                    {
+                        if (Data.INFRAprefixMap.TryGetValue(select, out string prefix))
+                        {
+                            int k = 0;
+                            foreach (var view in plans)
+                            {
+                                var levelName = view.GenLevel != null ? view.GenLevel.Name : "XX";
+                                var name = $"{prefix}_{k + 1:00}_{levelName}_PLN_XX";
+                                view.Name = name;
+                                k++;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    else if (ceilingplans.TryGetValue(select, out var cplans))
+                    {
+                        {
+                            if (Data.INFRAprefixMap.TryGetValue(select, out string prefix))
                             {
                                 int k = 0;
                                 foreach (var view in cplans)
