@@ -22,7 +22,7 @@ namespace Views_Renamer
         public static Dictionary<string, List<View>> threeddic { get; set; }
         public static readonly List<string> ViewCategories = new List<string>
         {
-            "00_Work In Progress",
+            "00_Work in Progress",
             "01_Blockwork Plans",
             "02_Flooring",
             "03_Ceiling",
@@ -37,7 +37,7 @@ namespace Views_Renamer
         };
         public static readonly List<string> STViewCategories = new List<string>
         {
-            "00_Work In Progress",
+            "00_Work in Progress",
             "01_General",
             "02_Column & Axis",
             "03_Foundation",
@@ -51,7 +51,7 @@ namespace Views_Renamer
         };
         public static readonly List<string> ELViewCategories = new List<string>
         {
-            "00_Work In Progress",
+            "00_Work in Progress",
             "01_General",
             "02_Lighting",
             "03_Power",
@@ -72,7 +72,7 @@ namespace Views_Renamer
         };
         public static readonly List<string> PLViewCategories = new List<string>
         {
-            "00_Work In Progress",
+            "00_Work in Progress",
             "01_General",
             "02_Drainage",
             "03_Water Supply",
@@ -81,7 +81,7 @@ namespace Views_Renamer
         };
         public static readonly List<string> MEViewCategories = new List<string>
         {
-            "00_Work In Progress",
+            "00_Work in Progress",
             "01_General",
             "02_HVAC",
             "03_Fire Fighting",
@@ -92,7 +92,7 @@ namespace Views_Renamer
         };
         public static readonly List<string> INFRAViewCategories = new List<string>
         {
-            "00_Work In Progress",
+            "00_Work in Progress",
             "01_General",
             "02_Storm Water",
             "03_Swege",
@@ -142,7 +142,7 @@ namespace Views_Renamer
         };
         public static readonly Dictionary<string, string> prefixMap = new Dictionary<string, string>
         {
-            { "00_Work In Progress", "WIP" },
+            { "00_Work in Progress", "WIP" },
             { "01_Blockwork Plans", "BW" },
             { "02_Flooring", "FL" },
             { "03_Ceiling" , "RC" },
@@ -157,7 +157,7 @@ namespace Views_Renamer
         };
         public static readonly Dictionary<string, string> STprefixMap = new Dictionary<string, string>
         {
-            { "00_Work In Progress", "WIP" },
+            { "00_Work in Progress", "WIP" },
             { "01_General", "XX" },
             { "02_Column & Axis", "CA" },
             { "03_Foundation", "FO" },
@@ -171,7 +171,7 @@ namespace Views_Renamer
         };
         public static readonly Dictionary<string, string> ELprefixMap = new Dictionary<string, string>
         {
-            { "00_Work In Progress", "WIP" },
+            { "00_Work in Progress", "WIP" },
             { "01_General", "XX" },
             { "02_Lighting", "LT" },
             { "03_Power", "PO" },
@@ -192,7 +192,7 @@ namespace Views_Renamer
         };
         public static readonly Dictionary<string, string> PLprefixMap = new Dictionary<string, string>
         {
-            { "00_Work In Progress", "WIP" },
+            { "00_Work in Progress", "WIP" },
             { "01_General", "XX" },
             { "02_Drainage", "DR" },
             { "03_Water Supply", "WS" },
@@ -201,7 +201,7 @@ namespace Views_Renamer
         };
         public static readonly Dictionary<string, string> MEprefixMap = new Dictionary<string, string>
         {
-            { "00_Work In Progress", "WIP" },
+            { "00_Work in Progress", "WIP" },
             { "01_General", "XX" },
             { "02_HVAC", "HV" },
             { "03_Fire Fighting", "FF" },
@@ -212,7 +212,7 @@ namespace Views_Renamer
         };
         public static readonly Dictionary<string, string> INFRAprefixMap = new Dictionary<string, string>
         {
-            { "00_Work In Progress", "WIP" },
+            { "00_Work in Progress", "WIP" },
             { "01_General", "XX" },
             { "02_Storm Water", "SD" },
             { "03_Swege", "SW" },

@@ -133,7 +133,7 @@ namespace Views_Renamer.UI
 
             switch (selected)
             {
-                case "00_Work In Progress":
+                case "00_Work in Progress":
                     RvtUtils.Switcher(selected, elevations, sections, threed);
                     break;
                 case "01_General":
