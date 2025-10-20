@@ -47,7 +47,47 @@ namespace Views_Renamer
             "07_Piles",
             "08_Concrete Dimension",
             "09_Reinforcement",
-            "10_Analytical",
+            "10_Analytical"
+        };
+        public static readonly List<string> ELViewCategories = new List<string>
+        {
+            "00_Work In Progress",
+            "01_General",
+            "02_Lighting",
+            "03_Power",
+            "04_Equipment Power",
+            "05_Cable Routing",
+            "06_TEL-DATA",
+            "07_CCTV",
+            "08_Public Address",
+            "09_Q-Metric",
+            "10_Fire Alarm",
+            "11_Low Current",
+            "12_NUrse Calling",
+            "13_BMS",
+            "14_Panel Schedules",
+            "15_General Details",
+            "16_Life Safety",
+            "17_Landscape"
+        };
+        public static readonly List<string> PLViewCategories = new List<string>
+        {
+            "00_Work In Progress",
+            "01_General",
+            "02_Drainage",
+            "03_Water Supply",
+            "04_Irrigation",
+            "05_Rainwater Drain"
+        };
+        public static readonly List<string> MEViewCategories = new List<string>
+        {
+            "00_Work In Progress",
+            "01_General",
+            "02_HVAC",
+            "03_Fire Fighting",
+            "04_Chilled Water",
+            "05_Medical Gases",
+            "07_Gas System"
         };
         public static readonly List<string> Levels = new List<string>
         {
@@ -110,6 +150,46 @@ namespace Views_Renamer
             { "08_Concrete Dimension", "CO" },
             { "09_Reinforcement", "RF" },
             { "10_Analytical", "AN" }
+        };
+        public static readonly Dictionary<string, string> ELprefixMap = new Dictionary<string, string>
+        {
+            { "00_Work In Progress", "WIP" },
+            { "01_General", "GN" },
+            { "02_Lighting", "LT" },
+            { "03_Power", "PO" },
+            { "04_Equipment Power", "EP" },
+            { "05_Cable Routing", "CR" },
+            { "06_TEL-DATA", "TD" },
+            { "07_CCTV", "CT" },
+            { "08_Public Address", "PA" },
+            { "09_Q-Metric", "QM" },
+            { "10_Fire Alarm", "FA" },
+            { "11_Low Current", "LC" },
+            { "12_NUrse Calling", "NC" },
+            { "13_BMS", "BM" },
+            { "14_Panel Schedules", "PS" },
+            { "15_General Details", "GD" },
+            { "16_Life Safety", "LF" },
+            { "17_Landscape", "LS" }
+        };
+        public static readonly Dictionary<string, string> PLprefixMap = new Dictionary<string, string>
+        {
+            { "00_Work In Progress", "WIP" },
+            { "01_General", "XX" },
+            { "02_Drainage", "DR" },
+            { "03_Water Supply", "WS" },
+            { "04_Irrigation", "IR" },
+            { "05_Rainwater Drain", "RN" }
+        };
+        public static readonly Dictionary<string, string> MEprefixMap = new Dictionary<string, string>
+        {
+            { "00_Work In Progress", "WIP" },
+            { "01_General", "XX" },
+            { "02_HVAC", "HV" },
+            { "03_Fire Fighting", "FF" },
+            { "04_Chilled Water", "CW" },
+            { "05_Medical Gases", "MD" },
+            { "07_Gas System", "GS" }
         };
 
         public static void Intialize()
