@@ -227,7 +227,7 @@ namespace Views_Renamer
                                 {
                                     if (!floorplans.ContainsKey(paramValue))
                                         floorplans[paramValue] = new List<View>();
-                                    floorplans[paramValue].Add(view);
+                                        floorplans[paramValue].Add(view);
                                 }
                             }
                             else if (view.ViewType == ViewType.CeilingPlan)
@@ -241,7 +241,7 @@ namespace Views_Renamer
                                 {
                                     if (!ceilingplans.ContainsKey(paramValue))
                                         ceilingplans[paramValue] = new List<View>();
-                                    ceilingplans[paramValue].Add(view);
+                                        ceilingplans[paramValue].Add(view);
                                 }
                             }
                         }
