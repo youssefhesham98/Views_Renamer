@@ -38,7 +38,13 @@ namespace Views_Renamer.UI
             //elevations.MouseDown += listBox_MouseDown;
             //sections.MouseDown += listBox_MouseDown;
             //threed.MouseDown += listBox_MouseDown;
-            RvtUtils.CollectRestViews(ExCmd.doc);
+            Data.elevdic.Clear();
+            Data.secdic.Clear();
+            Data.threeddic.Clear();
+            elevations.Items.Clear();
+            sections.Items.Clear();
+            threed.Items.Clear();
+            RvtUtils.STCollectRestViews(ExCmd.doc);
             _viewsByCategory = Data.STViewCategories;
             elevations_ = elevations;
             sections_ = sections;
@@ -172,14 +178,14 @@ namespace Views_Renamer.UI
                 TaskDialog.Show("Error", "Please enter a new value in the text box.");
                 return;
             }
-            ExCmd.exevt.request = Request.Rename;
+            ExCmd.exevt.request = Request.STrenamer;
             ExCmd.exevthan.Raise();
         }
 
         private void cattegories_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cattegories.SelectedItem == null) return;
-            string selected = cattegories.SelectedItem.ToString();
+            string selected = this.cattegories.SelectedItem.ToString();
             elevations.Items.Clear();
             sections.Items.Clear();
             threed.Items.Clear();

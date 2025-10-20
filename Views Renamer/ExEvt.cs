@@ -28,6 +28,9 @@ namespace Views_Renamer
                 case Request.STCollector:
                     RvtUtils.STCollector(ExCmd.doc, STform.selected_);
                     break;
+                case Request.STrenamer:
+                    RvtUtils.Renamer(ExCmd.doc, STform.elevations_, STform.sections_, STform.threeds, STform.newvalue);
+                    break;
             }
         }
 
@@ -39,7 +42,8 @@ namespace Views_Renamer
         {
             Collect,
             Rename,
-            STCollector
+            STCollector,
+            STrenamer
         }
     }
 }

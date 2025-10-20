@@ -102,6 +102,67 @@ namespace Views_Renamer
                 }
             }
         }
+        public static void STCollectRestViews(Document doc)
+        {
+            var restViews = new FilteredElementCollector(doc)
+                   .OfClass(typeof(View))
+                   .Cast<View>()
+                   .Where(v => !v.IsTemplate)
+                   .Where(v =>
+                       v.ViewType == ViewType.Elevation ||
+                       v.ViewType == ViewType.Section ||
+                       v.ViewType == ViewType.ThreeD)
+                   .ToList();
+
+            foreach (var view in restViews)
+            {
+                if (view.ViewType == ViewType.Elevation)
+                {
+                    Parameter param = view.LookupParameter("View Category");
+                    if (param == null || !param.HasValue) continue;
+                    string paramValue = param.AsString();
+                    if (string.IsNullOrEmpty(paramValue)) continue;
+                    //Match only values from our list
+                    if (Data.STViewCategories.Contains(paramValue))
+                    {
+                        if (!Data.elevdic.ContainsKey(paramValue))
+                            Data.elevdic[paramValue] = new List<View>();
+                            Data.elevdic[paramValue].Add(view);
+                            Data.elevations[view.Name] = view;
+                    }
+                }
+                else if (view.ViewType == ViewType.Section)
+                {
+                    Parameter param = view.LookupParameter("View Category");
+                    if (param == null || !param.HasValue) continue;
+                    string paramValue = param.AsString();
+                    if (string.IsNullOrEmpty(paramValue)) continue;
+                    //Match only values from our list
+                    if (Data.STViewCategories.Contains(paramValue))
+                    {
+                        if (!Data.secdic.ContainsKey(paramValue))
+                            Data.secdic[paramValue] = new List<View>();
+                            Data.secdic[paramValue].Add(view);
+                            Data.sections[view.Name] = view;
+                    }
+                }
+                else if (view.ViewType == ViewType.ThreeD)
+                {
+                    Parameter param = view.LookupParameter("View Category");
+                    if (param == null || !param.HasValue) continue;
+                    string paramValue = param.AsString();
+                    if (string.IsNullOrEmpty(paramValue)) continue;
+                    //Match only values from our list
+                    if (Data.STViewCategories.Contains(paramValue))
+                    {
+                        if (!Data.threeddic.ContainsKey(paramValue))
+                            Data.threeddic[paramValue] = new List<View>();
+                            Data.threeddic[paramValue].Add(view);
+                            Data.threed[view.Name] = view;
+                    }
+                }
+            }
+        }
         /// <summary>
         /// switcher method to populate list boxes based on selected category
         /// </summary>
@@ -129,7 +190,6 @@ namespace Views_Renamer
             {
                 foreach (var view in threeds)
                 {
-
                     threed.Items.Add(view.Name.ToString());
                 }
             }
@@ -465,6 +525,11 @@ namespace Views_Renamer
                 #endregion
             }
         }
+        /// <summary>
+        /// structure collector method to rename floor and ceiling plans based on selected categories from the form
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="selection"></param>
         public static void STCollector(Document doc, List<string> selection)
         {
             using (Transaction tns = new Transaction(doc, "Renamer"))

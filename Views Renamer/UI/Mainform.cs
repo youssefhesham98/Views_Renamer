@@ -45,6 +45,12 @@ namespace Views_Renamer.UI
             //elevations.MouseDown += listBox_MouseDown;
             //sections.MouseDown += listBox_MouseDown;
             //threed.MouseDown += listBox_MouseDown;
+            Data.elevdic.Clear();
+            Data.secdic.Clear();
+            Data.threeddic.Clear();
+            elevations.Items.Clear();
+            sections.Items.Clear();
+            threed.Items.Clear();
             RvtUtils.CollectRestViews(ExCmd.doc);
             _viewsByCategory = Data.ViewCategories;
             elevations_ = elevations;
