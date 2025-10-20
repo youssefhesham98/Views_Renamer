@@ -16,7 +16,10 @@ namespace Views_Renamer.UI
     {
         private static Mainform ARform = null;
         private static STform STform = null;
-        //private static Mainform maininterface = null;
+        private static ELform Elform = null;
+        private static FFform FFform = null;
+        private static PLform PLform = null;
+        private static hvacform hvacform = null;
         public MainInterface()
         {
             InitializeComponent();
@@ -109,22 +112,118 @@ namespace Views_Renamer.UI
 
         private void elec_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // If already open, just bring it to front
+                if (Elform != null && !Elform.IsDisposed)
+                {
+                    ARform.BringToFront();
+                    return;
+                }
 
+                Elform = new ELform();
+
+                // When ARform closes, re-show this interface
+                Elform.FormClosed += (s, args) =>
+                {
+                    this.Show();
+                    Elform = null;
+                };
+
+                this.Hide();
+                Elform.Show();
+            }
+            catch (Exception ex)
+            {
+                TaskDialog.Show("Error", ex.Message);
+            }
         }
 
         private void hvac_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // If already open, just bring it to front
+                if (hvacform != null && !hvacform.IsDisposed)
+                {
+                    hvacform.BringToFront();
+                    return;
+                }
 
+                hvacform = new hvacform();
+
+                // When ARform closes, re-show this interface
+                hvacform.FormClosed += (s, args) =>
+                {
+                    this.Show();
+                    hvacform = null;
+                };
+
+                this.Hide();
+                hvacform.Show();
+            }
+            catch (Exception ex)
+            {
+                TaskDialog.Show("Error", ex.Message);
+            }
         }
 
         private void ff_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // If already open, just bring it to front
+                if (FFform != null && !FFform.IsDisposed)
+                {
+                    ARform.BringToFront();
+                    return;
+                }
 
+                FFform = new FFform();
+
+                // When ARform closes, re-show this interface
+                FFform.FormClosed += (s, args) =>
+                {
+                    this.Show();
+                    FFform = null;
+                };
+
+                this.Hide();
+                FFform.Show();
+            }
+            catch (Exception ex)
+            {
+                TaskDialog.Show("Error", ex.Message);
+            }
         }
 
         private void pb_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // If already open, just bring it to front
+                if (PLform != null && !PLform.IsDisposed)
+                {
+                    PLform.BringToFront();
+                    return;
+                }
 
+                PLform = new PLform();
+
+                // When ARform closes, re-show this interface
+                PLform.FormClosed += (s, args) =>
+                {
+                    this.Show();
+                    PLform = null;
+                };
+
+                this.Hide();
+                PLform.Show();
+            }
+            catch (Exception ex)
+            {
+                TaskDialog.Show("Error", ex.Message);
+            }
         }
     }
 }

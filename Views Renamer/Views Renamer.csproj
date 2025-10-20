@@ -52,6 +52,7 @@
     <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Presentation" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,6 +74,24 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="RvtUtils.cs" />
+    <Compile Include="UI\ELform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ELform.Designer.cs">
+      <DependentUpon>ELform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FFform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FFform.Designer.cs">
+      <DependentUpon>FFform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\hvacform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\hvacform.Designer.cs">
+      <DependentUpon>hvacform.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Mainform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +103,12 @@
     </Compile>
     <Compile Include="UI\MainInterface.Designer.cs">
       <DependentUpon>MainInterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PLform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PLform.Designer.cs">
+      <DependentUpon>PLform.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\STform.cs">
       <SubType>Form</SubType>
@@ -100,11 +125,23 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\ELform.resx">
+      <DependentUpon>ELform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FFform.resx">
+      <DependentUpon>FFform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\hvacform.resx">
+      <DependentUpon>hvacform.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Mainform.resx">
       <DependentUpon>Mainform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MainInterface.resx">
       <DependentUpon>MainInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PLform.resx">
+      <DependentUpon>PLform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\STform.resx">
       <DependentUpon>STform.cs</DependentUpon>
