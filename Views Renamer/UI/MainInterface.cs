@@ -255,5 +255,37 @@ namespace Views_Renamer.UI
                 TaskDialog.Show("Error", ex.Message);
             }
         }
+
+        private void lnkd_Click(object sender, EventArgs e)
+        {
+            string url = @"https://www.linkedin.com/in/youssef-hesham/";
+
+            if (!string.IsNullOrEmpty(url))
+            {
+                try
+                {
+                    // Open the URL in the default browser
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = url,
+                        UseShellExecute = true // Required to use the default browser
+                    });
+
+                }
+                catch (Exception ex)
+                {
+                    TaskDialog.Show("Error", $"Error opening the URL: {ex.Message}");
+                }
+            }
+            else
+            {
+                TaskDialog.Show("Error", "No URL entered.");
+            }
+        }
+
+        private void cls_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

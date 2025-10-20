@@ -174,5 +174,11 @@
   <ItemGroup>
     <None Include="bin\Resources\VIEWS_RENAMER.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Resources\Linkedin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Resources\Close.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
