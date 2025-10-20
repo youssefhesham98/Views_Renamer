@@ -73,6 +73,16 @@ namespace Views_Renamer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap VIEWS_RENAMER {
+            get {
+                object obj = ResourceManager.GetObject("VIEWS_RENAMER", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap viewsrenamer16 {
             get {
                 object obj = ResourceManager.GetObject("viewsrenamer16", resourceCulture);

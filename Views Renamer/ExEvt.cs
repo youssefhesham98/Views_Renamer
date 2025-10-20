@@ -25,6 +25,9 @@ namespace Views_Renamer
                 case Request.Rename:
                     RvtUtils.Renamer(ExCmd.doc,Mainform.elevations_,Mainform.sections_,Mainform.threeds,Mainform.newvalue);
                     break;
+                case Request.STCollector:
+                    RvtUtils.STCollector(ExCmd.doc, STform.selected_);
+                    break;
             }
         }
 
@@ -35,7 +38,8 @@ namespace Views_Renamer
         public enum Request
         {
             Collect,
-            Rename
+            Rename,
+            STCollector
         }
     }
 }

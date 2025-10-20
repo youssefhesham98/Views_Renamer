@@ -15,7 +15,7 @@ namespace Views_Renamer
     [Transaction(TransactionMode.Manual)]
     public class ExCmd : IExternalCommand
     {
-        private static Mainform maininterface = null;
+        private static MainInterface maininterface = null;
         public static Document doc { get; set; }
         public static UIDocument uidoc { get; set; }
         public static UIApplication uiapp { get; set; }
@@ -39,7 +39,7 @@ namespace Views_Renamer
                 maininterface.Dispose();
             }
 
-            maininterface = new Mainform();
+            maininterface = new MainInterface();
             maininterface.Show();
 
             #region ex_ev&ev_han&tns

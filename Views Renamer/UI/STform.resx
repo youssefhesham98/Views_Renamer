@@ -117,23 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="viewsrenamer16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Resources\viewsrenamer16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="viewsrenamer24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Resources\viewsrenamer24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="viewsrenamer1696" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Resources\viewsrenamer1696.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="EDECS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Resources\EDECS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="viewsrenamer32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Resources\viewsrenamer32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="VIEWS_RENAMER" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Resources\VIEWS_RENAMER.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABMLAAATCwAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYGUAkmBkAKpgZACqYWQAWQAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGBkAEJgZQDHX2UAjV1kACYAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAGFjAFxgZQCkYGQAqmBkAKpgZAByYGQAqmBmAFVgZACqYGQAqmBk
+        AKpfZACYXmMALgAAAAAAAAAAAAAAAF9lAF1gZQD/YGUA/2BlAP9gZQD/YGQAqmBkAKpgZgBVYGUA/2Bl
+        AP9gZQD/YGUA/2BlAO9hYQAVAAAAAAAAAABgZQCkYGUA/2BlAP9gZQD/YGUA/2BkAKpgZACqYGYAVWBl
+        AP9gZQD/YGUA/2BlAP9gZQD/XmUATgAAAAAAAAAAYGQAqmBlAP9gZQD/YGUA/2BlAP9gZACqYGQAqmBm
+        AFVgZQD/YGUA/2BlAP9gZQD/YGUA/2BmAFUAAAAAAAAAAGBkAKpgZQD/YGUA/2BlAP9gZQD/YGQAqmBk
+        AKpgZgBVYGUA/2BlAP9gZQD/YGUA/2BlAP9gZgBVAAAAAAAAAABgZACqYGUA/2BlAP9gZQD/YGUA/2Bk
+        AKpgZACqYGYAVWBlAP9gZQD/YGUA/2BlAP9gZQD/YGYAVQAAAAAAAAAAYGQAqmBlAP9gZQD/YGUA/2Bl
+        AP9gZACqYGQAqmBmAFVgZQD/YGUA/2BlAP9gZQD/YGUA/2BmAFUAAAAAAAAAAGBlAKRgZQD/YGUA/2Bl
+        AP9gZQD/YGQAqmBkAKpgZgBVYGUA/2BlAP9gZQD/YGUA/2BlAP9eZQBOAAAAAAAAAABeZABeYGUA/2Bl
+        AP9gZQD/YGUA/2BkAKpgZACqYGYAVWBlAP9gZQD/YGUA/2BlAP9fZADwXGgAFgAAAAAAAAAAAAAAAV5k
+        AF5gZQCkYGQAqmBkAKpgZAByYGQAqmBmAFVgZACqYGQAqmBkAKpgZQCZYWcALwAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAYGQAQmBlAMdfZQCNXWQAJgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAGBlAJJgZACqYGQAqmFkAFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA//8AAPw/AAD8PwAAwAMAAIABAACAAQAAgAEAAIABAACAAQAAgAEAAIABAACAAQAAgAMAAPw/
+        AAD8PwAA//8AAA==
+</value>
   </data>
 </root>

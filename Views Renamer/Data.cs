@@ -47,7 +47,7 @@ namespace Views_Renamer
             "07_Piles",
             "08_Concrete Dimension",
             "09_Reinforcement",
-            "Analytical",
+            "10_Analytical",
         };
         public static readonly List<string> Levels = new List<string>
         {
@@ -109,7 +109,7 @@ namespace Views_Renamer
             { "07_Piles", "PI" },
             { "08_Concrete Dimension", "CO" },
             { "09_Reinforcement", "RF" },
-            { "Analytical", "AN" }
+            { "10_Analytical", "AN" }
         };
 
         public static void Intialize()
