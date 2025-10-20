@@ -87,7 +87,25 @@ namespace Views_Renamer
             "03_Fire Fighting",
             "04_Chilled Water",
             "05_Medical Gases",
+            "06_Compressed Air",
             "07_Gas System"
+        };
+        public static readonly List<string> INFRAViewCategories = new List<string>
+        {
+            "00_Work In Progress",
+            "01_General",
+            "02_Storm Water",
+            "03_Swege",
+            "04_Water Supply",
+            "05_Firefighting",
+            "06_Irrigation",
+            "07_CCTV",
+            "08_Public Address",
+            "09_LV Network",
+            "10_Fire Alarm",
+            "11_Low Current",
+            "12_MV Network",
+            "13_Ductbanks"
         };
         public static readonly List<string> Levels = new List<string>
         {
@@ -154,7 +172,7 @@ namespace Views_Renamer
         public static readonly Dictionary<string, string> ELprefixMap = new Dictionary<string, string>
         {
             { "00_Work In Progress", "WIP" },
-            { "01_General", "GN" },
+            { "01_General", "XX" },
             { "02_Lighting", "LT" },
             { "03_Power", "PO" },
             { "04_Equipment Power", "EP" },
@@ -189,7 +207,25 @@ namespace Views_Renamer
             { "03_Fire Fighting", "FF" },
             { "04_Chilled Water", "CW" },
             { "05_Medical Gases", "MD" },
+            { "06_Compressed Air", "CA" },
             { "07_Gas System", "GS" }
+        };
+        public static readonly Dictionary<string, string> INFRAprefixMap = new Dictionary<string, string>
+        {
+            { "00_Work In Progress", "WIP" },
+            { "01_General", "XX" },
+            { "02_Storm Water", "SD" },
+            { "03_Swege", "SW" },
+            { "04_Water Supply", "WW" },
+            { "05_Firefighting", "FF" },
+            { "06_Irrigation", "IR" },
+            { "07_CCTV", "CT" },
+            { "08_Public Address", "PA" },
+            { "09_LV Network", "LV" },
+            { "10_Fire Alarm", "FA" },
+            { "11_Low Current", "LC" },
+            { "12_MV Network", "MV" },
+            { "13_Ductbanks", "DB" }
         };
 
         public static void Intialize()
