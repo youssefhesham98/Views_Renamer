@@ -1,10 +1,3 @@
-Absolutely ✅ — here’s the complete, single Markdown code block for your GitHub README.md file — already personalized with your real LinkedIn, GitHub, email, and demo video link.
-
-You can copy-paste this entire block directly into your README.md:
-
-
----
-
 # 🧭 Views Renamer for Autodesk Revit  
 ### Automated View Naming According to EDECS BIM Manual & ISO 19650 Standards  
 
